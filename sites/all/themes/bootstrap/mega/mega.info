@@ -12,8 +12,14 @@ regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
+regions[horizontal_menu] = 'Top Horizontal Menu'
+regions[main_menu]      = 'Main Menu'
+
 
 ; Stylesheets
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/x_layout.css
 stylesheets[all][] = css/style.css
 
 ;**********************************
