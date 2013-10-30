@@ -109,7 +109,7 @@ border-radius:0px 0px 5px 5px;
 }
 
 .bodyer{
-min-height:420px;
+min-height:500px;
 height:auto;
 background:#73880A;
 border-color:#666;
@@ -220,7 +220,7 @@ font-weight:bold;
 	float:left;
 	margin:1px 0px 1px 0px;
 	min-height:114px;
-	max-height:116px;
+	/*max-height:116px;*/
 	}
 
 .homecon ul{

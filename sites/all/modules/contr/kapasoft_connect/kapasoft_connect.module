@@ -1,0 +1,132 @@
+<?php
+/**
+ * @file
+ * Custom functionality for Bazar Theme
+ */
+
+/*****CREATING BLOCK********/
+function kapasoft_connect_block_info(){
+    $blocks = array();
+    $blocks['contact_form'] = array(
+        'info' => t('Kapasoft.com: Contact Form Block'),//admin ui block name
+        'properties' => array('administrative' => TRUE),
+    );
+    $blocks['contact_form_horizon'] = array(
+        'info' => t('Kapasoft.com: Contact Form Block Horizontal'),//admin ui block name
+        'properties' => array('administrative' => TRUE),
+    );
+    $blocks['inquiry_form_horizon'] = array(
+        'info' => t('Kapasoft.com: Inquiry Form Horizontal'),//admin ui block name
+        'properties' => array('administrative' => TRUE),
+    );
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view
+ * the rendered block content and title
+ */
+function kapasoft_connect_block_view($delta = ''){
+    $block = array();
+
+    switch($delta){
+        case 'contact_form':{
+            $block['subject'] = t('');
+            $block['content'] = array(
+                '#markup' => build_contact($delta),
+                '#attached' => array(
+                    'js' => array(
+                        drupal_get_path('module', 'kapasoft_connect').'/js/build/base.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 20,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/contact-config.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 19,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/contact-0.0.2.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 18,
+                        ),
+                    ),
+                ),
+            );
+            break;
+        }
+        case 'inquiry_form_horizon':
+            $block['subject'] = t('');
+            $block['content'] = array(
+                '#markup' => build_contact($delta),
+                '#attached' => array(
+                    'js' => array(
+                        drupal_get_path('module', 'kapasoft_connect').'/js/build/base.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 18,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/inquiry-config-horizontal.js' => array(
+                            'type' => 'file',
+                            'weight' => 19,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/contact-0.0.2.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 20,
+                        ),
+                    ),
+                ),
+            );
+            break;
+
+        case 'contact_form_horizon':{
+            $block['subject'] = t('');
+            $block['content'] = array(
+                '#markup' => build_contact($delta),
+                '#attached' => array(
+                    'js' => array(
+                       drupal_get_path('module', 'kapasoft_connect').'/js/build/base.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 18,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/contact-config-hor.js' => array(
+                            'type' => 'file',
+                            'weight' => 19,
+                        ),
+                        drupal_get_path('module', 'kapasoft_connect').'/js/contact-0.0.2.min.js' => array(
+                            'type' => 'file',
+                            'weight' => 20,
+                        ),
+                    ),
+                ),
+            );
+            break;
+        }
+    }
+
+    return $block;
+}
+
+function build_contact($delta){
+    $output = '';
+    switch($delta){
+        case 'contact_info2':
+        case 'contact_info':
+            $output .= theme_render_template(drupal_get_path('module', 'kapasoft_connect').'/inc/block--kapasoft-connect--contact-info.tpl.php', array());
+//            $output .= "<div>contact info block from module</div>";
+            break;
+        case 'contact_form':
+            $output .= theme_render_template(drupal_get_path('module', 'kapasoft_connect').'/inc/block--kapasoft-connect--contact-form.tpl.php', array());
+            break;
+        case 'inquiry_form_horizon':
+        case 'contact_form_horizon':
+            $output .= theme_render_template(drupal_get_path('module', 'kapasoft_connect').'/inc/block--kapasoft-connect--contact-form-horizontal.tpl.php', array());
+            break;
+
+    }
+    return $output;
+}
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ function mega_members_menu() {
         'title' => 'Membership Registration',
         'description' => 'registration form for members',
         'page callback' => 'register_member_page',
-        'access callback' => TRUE,
+        'access callback' => 'user_is_logged_in',
     );
 
     return $items;
@@ -330,6 +330,7 @@ function collect_member_info_form($form, &$form_submit) {
         '#type' => 'submit',
         '#value' => 'Submit',
     );
+
     return $form;
 }
 
@@ -448,7 +449,7 @@ function mega_menu_config(){
     if(count($nid_member) == 0){
         //user hasn't registered to membership
         $path_to_member = 'register';
-        $anchor_memeber_profile = '<span class="unregistered">Unregistered!</span> Please, Register';
+        $anchor_memeber_profile = '<span class="unregistered">Unregistered!</span> Please, register';
     }else{
         $path_to_member = drupal_get_path_alias("node/".$nid_member[0]);
         $anchor_memeber_profile = t('Personal Membership Info');

@@ -42,3 +42,26 @@ span.add-on{
 .sidestuffsec-c{
     min-height: 50px;
 }
+
+.views-row-20, .views-row-19, .views-row-18, .views-row-17, .views-row-16, .views-row-15, .views-row-14, .views-row-13, .views-row-12, .views-row-11,
+.views-row-10, .views-row-9, .views-row-8, .views-row-7, .views-row-6, .views-row-5, .views-row-4{
+    display:none;
+}
+
+.member-info-img{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.unregistered{
+    color:darkred;
+}
+
+input[type="text"], input[type="password"], input[type="email"].contact-email{
+    /*line-height: auto;*/
+    height: auto;
+}
+
+textarea.contact-textarea{
+    width: auto;
+}

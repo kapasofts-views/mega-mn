@@ -1,0 +1,11 @@
+name = Kapasoft Connect
+description = module for connect/inquiry forms
+core = 7.x
+version = 7.x-0.1-dev
+package = Kapasoft.com
+files[] = kapasoft_connect.module
+;configure = admin/config/bazar/manage
+
+
+
+;scripts[] = js/ajax_commands.js

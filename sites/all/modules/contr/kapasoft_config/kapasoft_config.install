@@ -1,0 +1,26 @@
+<?php
+
+
+function kapasoft_config_install(){
+    //set default variables
+    variable_set('kapasoft_driver_url', 'localhost');
+    variable_set('kapasoft_driver_port', '3000');
+
+    //get localization function for installation as t() may not be available
+    $t = get_t();
+
+    //give user feedback
+    drupal_set_message($t('Kapasoft driver configurations created'));
+}
+
+function kapasoft_config_uninstall(){
+    //Delete variables
+    variable_del('kapasoft_driver_url');
+    variable_del('kapasoft_driver_url');
+
+    //get localization function for installation as t() may not be available
+    $t = get_t();
+
+    //give user feedback
+    drupal_set_message($t('Kapasoft driver configurations removed'));
+}

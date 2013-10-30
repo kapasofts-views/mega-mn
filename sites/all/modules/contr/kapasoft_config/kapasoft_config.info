@@ -1,0 +1,8 @@
+name = Kapasoft Interface Config
+description = Configuration module for interfacting Driver via WebSocket(ensure blocks accessible in header preprocessor )
+core = 7.x
+version = 7.x-0.1-dev
+package = Kapasoft.com
+files[] = kapasoft_config.module
+;dependencies = module1
+configure = admin/config/kapasoft/manage
