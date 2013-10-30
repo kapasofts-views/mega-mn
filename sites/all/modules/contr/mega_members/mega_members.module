@@ -410,6 +410,12 @@ function mega_members_block_info(){
     $blocks['mega_menu'] = array(
         'info' => t('Kapasoft Module: Mega Menu'),
     );
+    $blocks['mega_main_menu'] = array(
+        'info' => t('Kapasoft Module: Mega Main Menu'),
+    );
+    $blocks['mega_main_hor_menu'] = array(
+        'info' => t('Kapasoft Module: Mega Main Top Hor Menu'),
+    );
     return $blocks;
 }
 
@@ -419,6 +425,16 @@ function mega_members_block_view($delta = ''){
         case 'mega_menu':{
             $blocks['subject'] = t('Mega Members');
             $blocks['content'] = theme_render_template(drupal_get_path('module', 'mega_members').'/inc/block--member-menu.tpl.php', mega_menu_config());
+            break;
+        }
+        case 'mega_main_menu':{
+            $blocks['subject'] = t('');
+            $blocks['content'] = theme_render_template(drupal_get_path('module', 'mega_members').'/inc/block--mega-main-menu.tpl.php', mega_main_menu_config());
+            break;
+        }
+        case 'mega_main_hor_menu':{
+            $blocks['subject'] = t('');
+            $blocks['content'] = theme_render_template(drupal_get_path('module', 'mega_members').'/inc/block--mega-main-hor-menu.tpl.php', mega_main_menu_config());
             break;
         }
     }
@@ -475,4 +491,22 @@ function mega_menu_config(){
     );
 
     return $config;
+}
+
+function mega_main_menu_config(){
+    $mainMenuArray = menu_load_links('main-menu');
+    $finalMainMenu = array();
+    $finalMainMenu['main_menu'] = array();
+    foreach($mainMenuArray as $key=>$menuItem){
+        if($menuItem['link_path'] != "<front>"){
+        $menu_item = array();
+        $menu_item['active'] = false;
+        $linkPath = $menuItem['link_path'];
+        $linkPathAlias = drupal_get_path_alias($linkPath);
+        $menu_item['url'] = $linkPathAlias;
+        $menu_item['title'] = $menuItem['link_title'];
+        $finalMainMenu['main_menu'][] = $menu_item;
+        }
+    }
+    return $finalMainMenu;
 }
