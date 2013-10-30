@@ -26,6 +26,9 @@ function mega_preprocess_page(&$vars, $hook) {
             case 'member':
                 mega_preprocess_member($vars);
                 break;
+            case 'home':
+                mega_preprocess_home($vars);
+                break;
             default:
                 break;
 
@@ -43,6 +46,14 @@ function mega_preprocess_member(&$vars){
     $member['photo'] = base_path().path_to_theme().'/img/placeholder-img.jpg';
 //    $member_profile = user_load($node->uid);
     $vars['member'] = $member;
+}
+
+function mega_preprocess_home(&$vars){
+    $node = $vars['node'];
+    $home = array();
+    $home['welcome_message'] = $node->field_welcome_message[LANGUAGE_NONE][0]['value'];
+    $home['objectives_message'] = $node->field_objectives_mission[LANGUAGE_NONE][0]['value'];
+    $vars['home'] = $home;
 }
 
 

@@ -57,32 +57,14 @@
                     <div class="span6 contentsubrow contentsubrow-l">
                         <div class="span6 homecon homecon-top">
                             <div class="span2 homecon-topsec homecon-topsec-a">
-                                <img src="/sites/all/themes/bootstrap/mega/img/body/smiler.png" alt="smile" height="108" width="140" />
+                               <?php echo '<img src="'.base_path().path_to_theme().'/img/body/smiler.png" alt="smile" height="108" width="140" />';?>
                             </div>
                             <div class="span4 homecon-topsec homecon-topsec-b">
-                                <h3>Mega Minnesota</h3>
-                                <h4>Welcome to our Portal</h4>
-                <span>We are a non-profit and non-trading organization devoted to its member's welfare.This Association is not a political one nor is it to be associated or affiliated to any political organization or party.
-                </span>
+                                <?php echo $home['welcome_message']; ?>
                             </div>
                         </div>
                         <div class="span6 homecon homecon-bot">
-                            <span class="xlead">Our key objectives are:</span> </br>
-                            <ul>
-                                <li>
-                                    a) To promote unity and solidarity of the members and other organizations with similar goals, eg: the church.
-                                </li>
-                                <li>
-                                    b) To do and carry out those objectives that are generally and naturally related to the main objectives.
-                                </li>
-                                <li>
-                                    c) To support members both financially and emotionally in the event of loss of a member or a close relative.
-                                </li>
-                            </ul>
-                            <h5>Our Mission</h5>
-                            <p>Our mission is to promote unity, solidarity and cultural practices and to support our members in social issues and total well being.</p>
-                            <p>Mega Minnesota is a non- Profit and non-trading organization to be devoted to its member's welfare. It is non-political and is not to
-                                be associated or affiliated with any political party or organization.</p>
+                            <?php  echo $home['objectives_message'];?>
                         </div>
                     </div>
                     <div class="span3 contentsubrow contentsubrow-r">
