@@ -68,8 +68,10 @@
                         </div>
                     </div>
                     <div class="span3 contentsubrow contentsubrow-r">
-                        <h5>Announcements</h5>
+
+                            <h5>Announcements</h5>
                         <?php print render($page['twitter']); ?>
+
                     </div>
                     <?php //print render($page['content']); ?>
                 </div>
