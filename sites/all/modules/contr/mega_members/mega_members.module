@@ -108,12 +108,39 @@ function collect_member_info_form($form, &$form_submit) {
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
     );
+    $form['parents']['mother_first_name'] = array(
+        '#title' => t('Mother First Name'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#description' => t(''),
+    );
+
+    $form['parents']['mother_last_name'] = array(
+        '#title' => t('Mother Last Name'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#description' => t(''),
+    );
     $form['parents']['member_mother'] = array(
         '#title' => t('Mother is a US Resident?'),
         '#type' => 'radios',
         '#required' => TRUE,
         '#options' => array('yes' => t('Yes'), 'no' => t('No')),
         '#default_value' => 'no',
+    );
+
+    $form['parents']['father_first_name'] = array(
+        '#title' => t('Father First Name'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#description' => t(''),
+    );
+
+    $form['parents']['father_last_name'] = array(
+        '#title' => t('Father Last Name'),
+        '#type' => 'textfield',
+        '#required' => TRUE,
+        '#description' => t(''),
     );
 
     $form['parents']['member_father'] = array(
@@ -355,7 +382,12 @@ function collect_member_info_form_submit($form, &$form_state) {
     $newNode->field_member_us_resident[LANGUAGE_NONE][0]['tid'] = taxonomyId($form['member']['member_residency']['#value']);
 
 //parents
+    $newNode->field_mother_first_name[LANGUAGE_NONE][0]['value'] = $form['parents']['mother_first_name']['#value'];
+    $newNode->field_mother_last_name[LANGUAGE_NONE][0]['value'] = $form['parents']['mother_last_name']['#value'];
     $newNode->field_mother_us_resident[LANGUAGE_NONE][0]['tid'] = taxonomyId($form['parents']['member_mother']['#value']);
+
+    $newNode->field_father_first_name[LANGUAGE_NONE][0]['value'] = $form['parents']['father_first_name']['#value'];
+    $newNode->field_father_last_name[LANGUAGE_NONE][0]['value'] = $form['parents']['father_last_name']['#value'];
     $newNode->field_father_us_resident[LANGUAGE_NONE][0]['tid'] = taxonomyId($form['parents']['member_father']['#value']);
 //spouse
     $newNode->field_spouse_first_name[LANGUAGE_NONE][0]['value'] = $form['spouse']['spouse_first_name']['#value'];
