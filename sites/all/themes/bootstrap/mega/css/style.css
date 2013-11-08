@@ -66,6 +66,7 @@ textarea.contact-textarea{
     width: auto;
 }
 
+/********Twitter********/
 .region-twitter ul{
     list-style: none outside none;
     margin-bottom: 20px;
@@ -99,4 +100,9 @@ textarea.contact-textarea{
 
 .views-field-created-time{
     color: #999999;
+}
+
+.views-field-text{
+    font-weight: bold;
+    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
 }
