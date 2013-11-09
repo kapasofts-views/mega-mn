@@ -111,20 +111,20 @@ function collect_member_info_form($form, &$form_submit) {
     $form['parents']['mother_first_name'] = array(
         '#title' => t('Mother First Name'),
         '#type' => 'textfield',
-        '#required' => TRUE,
+        '#required' => FALSE,
         '#description' => t(''),
     );
 
     $form['parents']['mother_last_name'] = array(
         '#title' => t('Mother Last Name'),
         '#type' => 'textfield',
-        '#required' => TRUE,
+        '#required' => FALSE,
         '#description' => t(''),
     );
     $form['parents']['member_mother'] = array(
         '#title' => t('Mother is a US Resident?'),
         '#type' => 'radios',
-        '#required' => TRUE,
+        '#required' => FALSE,
         '#options' => array('yes' => t('Yes'), 'no' => t('No')),
         '#default_value' => 'no',
     );
@@ -132,14 +132,14 @@ function collect_member_info_form($form, &$form_submit) {
     $form['parents']['father_first_name'] = array(
         '#title' => t('Father First Name'),
         '#type' => 'textfield',
-        '#required' => TRUE,
+        '#required' => FALSE,
         '#description' => t(''),
     );
 
     $form['parents']['father_last_name'] = array(
         '#title' => t('Father Last Name'),
         '#type' => 'textfield',
-        '#required' => TRUE,
+        '#required' => FALSE,
         '#description' => t(''),
     );
 
